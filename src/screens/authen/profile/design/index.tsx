@@ -56,7 +56,8 @@ const MyProfileComponent = ({navigation}: MyProfileProps) => {
         avatar={
           'https://d3f5j9upkzs19s.cloudfront.net/wp-content/uploads/2021/08/Dogecoin-Foundation.jpg'
         }
-        content={'myname@gmail.com'}
+        content={'Change Avatar'}
+        contentColor={'#F15D59'}
         canEdit
       />
       <View style={{height: 1, backgroundColor: '#C4C4C4'}} />

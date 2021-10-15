@@ -2,9 +2,16 @@ import {moderateScale} from '@app/src/common';
 import {Icon, Space} from '@app/src/components';
 import {ColorDefault} from '@app/src/themes/color';
 import {fontSizeDefault} from '@app/src/themes/fontSize';
-import React, {memo} from 'react';
+import React, {memo, useMemo} from 'react';
 import isEqual from 'react-fast-compare';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextStyle,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 const styles = StyleSheet.create({
@@ -17,7 +24,6 @@ const styles = StyleSheet.create({
     paddingVertical: moderateScale(12),
   },
   text: {
-    color: ColorDefault.primary,
     fontSize: fontSizeDefault.FONT_14,
   },
   avatar: {
@@ -32,6 +38,7 @@ interface ProfileRowProps {
   content?: string;
   canEdit?: boolean;
   avatar?: string;
+  contentColor?: string;
 }
 
 const ProfileRowComponent = ({
@@ -39,20 +46,27 @@ const ProfileRowComponent = ({
   content,
   avatar,
   canEdit = false,
+  contentColor = ColorDefault.primary,
 }: ProfileRowProps) => {
+  const textColor = useMemo<StyleProp<TextStyle>>(() => {
+    return {
+      color: contentColor,
+    };
+  }, [contentColor]);
+
   return (
     <View style={styles.container}>
       {avatar ? (
         <FastImage source={{uri: avatar}} style={styles.avatar} />
       ) : (
-        <Text style={styles.text}>{title ?? ''}</Text>
+        <Text style={[styles.text, textColor]}>{title ?? ''}</Text>
       )}
 
       {!canEdit ? (
-        <Text style={styles.text}>{content ?? ''}</Text>
+        <Text style={[styles.text, textColor]}>{content ?? ''}</Text>
       ) : (
         <TouchableOpacity style={{flexDirection: 'row'}}>
-          <Text style={styles.text}>{content ?? ''}</Text>
+          <Text style={[styles.text, textColor]}>{content ?? ''}</Text>
           <Space width={7} />
           <Icon source={'rightArrow'} />
         </TouchableOpacity>
