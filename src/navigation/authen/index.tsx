@@ -19,6 +19,7 @@ import {ColorDefault} from '@app/src/themes/color';
 import {RestaurantDetail} from '@app/src/screens/authen/restaurantDetail/design';
 import {Menu} from '@app/src/screens/authen/menu/design';
 import {ChangePassword} from '@app/src/screens/authen/changePassword/design';
+import {EditProfile} from '@app/src/screens/authen/editProfile/design';
 
 const Authen = createStackNavigator();
 
@@ -145,6 +146,7 @@ const AuthenScreenComponent = () => {
         component={ChangePassword}
       />
       <Authen.Screen name={APP_SCREEN.MY_PROFILE} component={MyProfile} />
+      <Authen.Screen name={APP_SCREEN.EDIT_PROFILE} component={EditProfile} />
     </Authen.Navigator>
   );
 };

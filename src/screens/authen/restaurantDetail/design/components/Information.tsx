@@ -16,10 +16,10 @@ const styles = StyleSheet.create({
 const InformationComponent = () => {
   // state
   const data: RestaurantInformation = {
-    location: 'Tầng 1, TTTM D2 Giảng Võ, Ba Đình, Hà Nội',
-    type: 'Milk Tea',
-    cash: '40,000đ',
-    openTime: 'Everyday: 10:00 - 21:00 ',
+    location: 'Ngách 3 Ngõ 131 - Thái Hà, Trung Liệt, Đống Đa',
+    type: 'Hotpot',
+    cash: '150,000đ',
+    openTime: 'Everyday: 08:00 - 23:00',
   };
 
   //render

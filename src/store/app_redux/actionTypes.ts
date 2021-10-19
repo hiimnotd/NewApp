@@ -1,9 +1,0 @@
-export const ADD_INFO = 'ADD_INFO';
-export const UPDATE_SLEEPTIME = 'UPDATE_SLEEPTIME';
-export const UPDATE_INFO = 'UPDATE_INFO';
-export const UPDATE_NAME = 'UPDATE_NAME';
-export const UPDATE_AGE = 'UPDATE_AGE';
-export const UPDATE_WEIGHT = 'UPDATE_WEIGHT';
-export const UPDATE_GENDER = 'UPDATE_GENDER';
-export const UPDATE_REGION = 'UPDATE_REGION';
-export const UPDATE_LANGUAGE = 'UPDATE_LANGUAGE';

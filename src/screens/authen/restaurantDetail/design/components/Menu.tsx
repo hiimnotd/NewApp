@@ -18,19 +18,41 @@ const MenuComponent = () => {
   const dishesData: Array<Dish> = [
     {
       id: 1,
-      name: 'Oolong milk tea',
+      name: 'Set 99k',
       size: 'Size M',
-      price: '30,000 đ',
+      price: '99,000 đ',
       image:
-        'https://gongcha.com.vn/wp-content/uploads/2019/06/Mango-Milktea.png',
+        'https://i2.wp.com/kenhhomestay.com/wp-content/uploads/2021/03/lau-phan-9.jpg',
     },
     {
       id: 2,
-      name: 'Oolong milk tea',
+      name: 'Set 119k',
       size: 'Size L',
-      price: '38,000 đ',
+      price: '119,000 đ',
+      image: 'https://cdn.lauphan.com/photo-storage/myFile-1617847162937.jpeg',
+    },
+    {
+      id: 3,
+      name: 'Set 129k',
+      size: 'Size L',
+      price: '129,000 đ',
       image:
-        'https://gongcha.com.vn/wp-content/uploads/2019/06/Mango-Milktea.png',
+        'https://top10vietnam.vn/wp-content/uploads/2020/01/combo-129k-lau-phan.jpg',
+    },
+    {
+      id: 4,
+      name: 'Set 169k',
+      size: 'Size L',
+      price: '169,000 đ',
+      image: 'https://cdn.lauphan.com/photo-storage/myFile-1617847253471.jpeg',
+    },
+    {
+      id: 5,
+      name: 'Buffet Pepsi',
+      size: 'Size L',
+      price: '39,000 đ / people',
+      image:
+        'https://salt.tikicdn.com/cache/400x400/ts/product/89/5a/d3/a2362f80c5e6da0a5702909e53423cd0.jpg',
     },
   ];
 

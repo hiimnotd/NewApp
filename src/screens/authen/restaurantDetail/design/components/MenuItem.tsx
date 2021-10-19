@@ -52,7 +52,7 @@ const MenuItemComponent = ({item}: MenuItemProps) => {
           paddingHorizontal: moderateScale(5),
         }}>
         <Text style={styles.name}>{item.name}</Text>
-        <Text style={styles.size}>{item.size}</Text>
+        {/* <Text style={styles.size}>{item.size}</Text> */}
         <Text style={styles.price}>{item.price}</Text>
       </View>
     </View>

@@ -1,3 +1,4 @@
+import {ForgotPassword} from '@app/src/screens/unAuthen/forgotPassword/design';
 import {Login} from '@app/src/screens/unAuthen/login/design';
 import {Register} from '@app/src/screens/unAuthen/register/design';
 import {Start} from '@app/src/screens/unAuthen/start/design';
@@ -25,6 +26,11 @@ const UnAuthenScreenComponent = () => {
       <UnAuthen.Screen
         name={APP_SCREEN.REGISTER}
         component={Register}
+        options={ScreenOptions}
+      />
+      <UnAuthen.Screen
+        name={APP_SCREEN.FORGOT_PASSWORD}
+        component={ForgotPassword}
         options={ScreenOptions}
       />
     </UnAuthen.Navigator>

@@ -31,6 +31,7 @@ const ButtonComponent = ({
   borderColor = ColorDefault.primary,
   width,
   borderRadius = 10,
+  activeOpacity = 1,
 }: ButtonProps) => {
   //style
   const buttonStyle: StyleProp<ViewStyle> = useMemo<
@@ -71,7 +72,10 @@ const ButtonComponent = ({
 
   // render
   return (
-    <TouchableOpacity onPress={onPressButton} style={[buttonStyle]}>
+    <TouchableOpacity
+      onPress={onPressButton}
+      style={[buttonStyle]}
+      activeOpacity={activeOpacity}>
       <Text tx={buttonLabelTx} style={[styles.label, labelStyle]} />
     </TouchableOpacity>
   );

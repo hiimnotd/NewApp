@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: '#404B5025',
     borderWidth: 1,
+    paddingHorizontal: 10,
   },
   placeholder: {
     color: ColorDefault.primary,
@@ -31,10 +32,14 @@ interface InputFieldProps {
   setValue: React.Dispatch<React.SetStateAction<string>>;
   placeholder: string;
   width?: number | string;
+  isDate?: boolean;
 }
 
 const InputComponent = forwardRef(
-  ({setValue, placeholder, width = '100%'}: InputFieldProps, ref) => {
+  (
+    {setValue, placeholder, width = '100%', isDate = false}: InputFieldProps,
+    ref,
+  ) => {
     // function
     const onChangeText = useCallback(
       (text: string) => {

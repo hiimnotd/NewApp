@@ -37,10 +37,10 @@ const RestaurantDetailComponent = () => {
   // state
   const [restaurant, setRestaurant] = useState<Restaurant>({
     id: 1,
-    name: 'Chago',
+    name: 'Phan Hotpot',
     cover:
-      'https://lh3.googleusercontent.com/proxy/rm9x5Fjy9Pt2RRe5_wT89nTFWCRYKP9rDXGr_ZbPbBBfY3C2AePqx8cqF-X8Qoe_NupRdpKjThgBrDHVWXZULQ_GIm11rsGoSrKS10KGsaqinq2CgzdBMVHSficHrd5eslovcb8j9auOSILqXfv4Lyo',
-    rating: 4.5,
+      'https://lh3.googleusercontent.com/proxy/6frpTNRlqVvMx9h4hxou35--HIyTswCWRBwyjxBHS9hDVJ5W5gempxP_JD_elmZu7UbCA6-TVucjkm0u1NubzuRESq8He3SEpdst2C0s0p98TIo',
+    rating: 4.7,
     reviews: 999,
     liked: false,
   });
@@ -61,11 +61,13 @@ const RestaurantDetailComponent = () => {
           <View style={{flexDirection: 'row'}}>
             <Icon source={'star'} size={16} />
             <Space width={7} />
-            <Text style={styles.reviews}>{restaurant.reviews} review</Text>
+            <Text style={styles.reviews}>
+              {`${restaurant.rating} (${restaurant.reviews} reviews)`}
+            </Text>
           </View>
         </View>
         <TouchableOpacity>
-          <Icon source={'heartOutline'} size={24} />
+          <Icon source={'heart'} size={24} />
         </TouchableOpacity>
       </View>
       <DetailTab />

@@ -39,6 +39,10 @@ const LoginComponent = ({navigation}: LoginScreenProps) => {
     navigation.navigate(APP_SCREEN.REGISTER);
   }, [navigation]);
 
+  const onNavigateForgot = useCallback(() => {
+    navigation.navigate(APP_SCREEN.FORGOT_PASSWORD);
+  }, [navigation]);
+
   const onLogin = useCallback(() => {
     navigation.navigate(APP_SCREEN.AUTHORIZE);
   }, [navigation]);
@@ -72,6 +76,18 @@ const LoginComponent = ({navigation}: LoginScreenProps) => {
             ref={passwordRef}
             label={'PASSWORD'}
           />
+          <Space height={10} />
+          <TouchableOpacity
+            onPress={onNavigateForgot}
+            style={{alignSelf: 'flex-end'}}>
+            <Text
+              text={'Forgot your password?'}
+              style={{
+                fontSize: fontSizeDefault.FONT_12,
+                color: ColorDefault.primary,
+              }}
+            />
+          </TouchableOpacity>
           <Space height={20} />
           <Button
             buttonLabelTx={'Login'}

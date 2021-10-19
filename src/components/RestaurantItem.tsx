@@ -73,7 +73,9 @@ const RestaurantItemComponent = ({
         <View style={{flexDirection: 'row'}}>
           <Icon source={'star'} size={14} />
           <Space width={7} />
-          <Text style={styles.reviews}>{item.reviews} review</Text>
+          <Text style={styles.reviews}>
+            {`${item.rating} (${item.reviews} reviews)`}
+          </Text>
         </View>
       </View>
       <TouchableOpacity>

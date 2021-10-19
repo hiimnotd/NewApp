@@ -2,7 +2,7 @@ import {moderateScale} from '@app/src/common';
 import {Icon, Space} from '@app/src/components';
 import {ColorDefault} from '@app/src/themes/color';
 import {fontSizeDefault} from '@app/src/themes/fontSize';
-import React, {memo, useMemo} from 'react';
+import React, {memo, useCallback, useMemo} from 'react';
 import isEqual from 'react-fast-compare';
 import {
   StyleProp,
@@ -39,6 +39,7 @@ interface ProfileRowProps {
   canEdit?: boolean;
   avatar?: string;
   contentColor?: string;
+  onNavigateEdit?: () => void;
 }
 
 const ProfileRowComponent = ({
@@ -47,12 +48,19 @@ const ProfileRowComponent = ({
   avatar,
   canEdit = false,
   contentColor = ColorDefault.primary,
+  onNavigateEdit,
 }: ProfileRowProps) => {
   const textColor = useMemo<StyleProp<TextStyle>>(() => {
     return {
       color: contentColor,
     };
   }, [contentColor]);
+
+  const onPress = useCallback(() => {
+    if (typeof onNavigateEdit === 'function') {
+      onNavigateEdit();
+    }
+  }, [onNavigateEdit]);
 
   return (
     <View style={styles.container}>
@@ -65,7 +73,7 @@ const ProfileRowComponent = ({
       {!canEdit ? (
         <Text style={[styles.text, textColor]}>{content ?? ''}</Text>
       ) : (
-        <TouchableOpacity style={{flexDirection: 'row'}}>
+        <TouchableOpacity style={{flexDirection: 'row'}} onPress={onPress}>
           <Text style={[styles.text, textColor]}>{content ?? ''}</Text>
           <Space width={7} />
           <Icon source={'rightArrow'} />

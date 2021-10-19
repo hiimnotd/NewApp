@@ -1,13 +1,14 @@
+import {useSelector} from '@app/src/common';
 import {HeaderTitle, Icon} from '@app/src/components';
 import {Background} from '@app/src/components/Background/Background';
 import {APP_SCREEN, AuthorizeParamsList} from '@app/src/navigation/screenTypes';
 import {ColorDefault} from '@app/src/themes/color';
 import {StackScreenProps} from '@react-navigation/stack';
-import React, {memo, useCallback, useEffect} from 'react';
+import React, {memo, useCallback, useEffect, useState} from 'react';
 import isEqual from 'react-fast-compare';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 
-import {ProfileRow} from './ProfileRow';
+import {ProfileRow} from './components/ProfileRow';
 
 const styles = StyleSheet.create({});
 
@@ -17,7 +18,8 @@ export type MyProfileProps = StackScreenProps<
 >;
 
 const MyProfileComponent = ({navigation}: MyProfileProps) => {
-  // functions
+  const profile = useSelector(x => x.app.profile);
+
   const onGoBack = useCallback(() => {
     navigation.goBack();
   }, [navigation]);
@@ -38,7 +40,6 @@ const MyProfileComponent = ({navigation}: MyProfileProps) => {
     return <View />;
   }, []);
 
-  // effect
   useEffect(() => {
     navigation.setOptions({
       headerShown: true,
@@ -48,6 +49,10 @@ const MyProfileComponent = ({navigation}: MyProfileProps) => {
       headerStyle: {backgroundColor: ColorDefault.background},
     });
   }, [navigation, renderHeaderTitle, renderLeftButton, renderRightButton]);
+
+  const onNavigateEdit = useCallback(() => {
+    navigation.navigate(APP_SCREEN.EDIT_PROFILE);
+  }, [navigation]);
 
   // render
   return (
@@ -61,13 +66,21 @@ const MyProfileComponent = ({navigation}: MyProfileProps) => {
         canEdit
       />
       <View style={{height: 1, backgroundColor: '#C4C4C4'}} />
-      <ProfileRow title={'Email'} content={'myname@gmail.com'} />
+      <ProfileRow title={'Email'} content={profile.email} />
       <View style={{height: 1, backgroundColor: '#C4C4C4'}} />
-      <ProfileRow title={'Phone Number'} content={'012345678'} />
+      <ProfileRow title={'Phone Number'} content={profile.phone} />
       <View style={{height: 1, backgroundColor: '#C4C4C4'}} />
-      <ProfileRow title={'Name'} content={'My Name'} canEdit />
+      <ProfileRow
+        title={'Name'}
+        content={profile.name}
+        canEdit
+        onNavigateEdit={onNavigateEdit}
+      />
       <View style={{height: 1, backgroundColor: '#C4C4C4'}} />
-      <ProfileRow title={'Gender'} content={'Male'} />
+      <ProfileRow
+        title={'Gender'}
+        content={profile.gender === 0 ? 'Male' : 'Female'}
+      />
       <View style={{height: 1, backgroundColor: '#C4C4C4'}} />
       <ProfileRow title={'Date of birth'} content={'Set Now'} canEdit />
     </Background>

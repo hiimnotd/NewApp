@@ -26,6 +26,7 @@ export const icons = {
   heart: require('./source/heart.png'),
   rightArrow: require('./source/rightArrow.png'),
   leftArrow: require('./source/leftArrow.png'),
+  date: require('./source/date.png'),
 };
 
 export type IconSource = keyof typeof icons;

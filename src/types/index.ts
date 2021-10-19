@@ -1,5 +1,3 @@
-import {ImageSourcePropType} from 'react-native';
-
 export interface Restaurant {
   id: number;
   name: string;
@@ -26,21 +24,13 @@ export interface RestaurantInformation {
   openTime: string;
 }
 
-export interface TypeOfDrink {
-  id: string;
-  name: string;
-  image: ImageSourcePropType;
-}
-
 export interface User {
-  name: string;
-  gender: 0 | 1;
-  region: number;
-  sleepTime: string;
-  wakeUpTime: string;
-  age: number;
-  weight: number;
-  language: string;
+  avatar?: string;
+  name?: string;
+  gender?: number;
+  email?: string;
+  phone?: string;
+  dob?: Date;
 }
 
 export interface FontSize {

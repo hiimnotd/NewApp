@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
 const data: Array<Restaurant> = [
   {
     id: 1,
-    name: 'Chago',
+    name: 'King BBQ',
     avatar:
-      'https://lh3.googleusercontent.com/proxy/rm9x5Fjy9Pt2RRe5_wT89nTFWCRYKP9rDXGr_ZbPbBBfY3C2AePqx8cqF-X8Qoe_NupRdpKjThgBrDHVWXZULQ_GIm11rsGoSrKS10KGsaqinq2CgzdBMVHSficHrd5eslovcb8j9auOSILqXfv4Lyo',
+      'https://media-cdn.tripadvisor.com/media/photo-s/17/a2/84/e4/nu-ng-khong-khoi-t-i.jpg',
     rating: 4.5,
     reviews: 999,
     liked: true,

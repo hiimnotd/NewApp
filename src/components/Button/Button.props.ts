@@ -8,4 +8,5 @@ export interface ButtonProps {
   width?: number | string;
   borderRadius?: number;
   borderColor?: string;
+  activeOpacity?: number;
 }

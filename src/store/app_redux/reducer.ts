@@ -7,7 +7,14 @@ export interface ProfileStateType {
 }
 
 const initialProfileState: ProfileStateType = {
-  profile: {} as User,
+  profile: {
+    avatar:
+      'https://d3f5j9upkzs19s.cloudfront.net/wp-content/uploads/2021/08/Dogecoin-Foundation.jpg',
+    email: 'myname@gmail.com',
+    phone: '012345678',
+    name: 'My Name',
+    gender: 0,
+  },
 };
 
 const appSlice = createSlice({
@@ -20,26 +27,18 @@ const appSlice = createSlice({
     onUpdateName: (state, {payload}: PayloadAction<string>) => {
       state.profile.name = payload;
     },
-    onUpdateWeight: (state, {payload}: PayloadAction<number>) => {
-      state.profile.weight = payload;
-    },
-    onUpdateAge: (state, {payload}: PayloadAction<number>) => {
-      state.profile.age = payload;
-    },
-    onUpdateGender: (state, {payload}: PayloadAction<0 | 1>) => {
+
+    onUpdateGender: (state, {payload}: PayloadAction<number>) => {
       state.profile.gender = payload;
     },
-    onUpdateLanguage: (state, {payload}: PayloadAction<string>) => {
-      state.profile.language = payload;
+    onUpdateEmail: (state, {payload}: PayloadAction<string>) => {
+      state.profile.email = payload;
     },
-    onUpdateRegion: (state, {payload}: PayloadAction<number>) => {
-      state.profile.region = payload;
+    onUpdatePhone: (state, {payload}: PayloadAction<string>) => {
+      state.profile.phone = payload;
     },
-    onUpdateSleepTime: (state, {payload}: PayloadAction<string>) => {
-      state.profile.sleepTime = payload;
-    },
-    onUpdateWakeUpTime: (state, {payload}: PayloadAction<string>) => {
-      state.profile.wakeUpTime = payload;
+    onUpdateDOB: (state, {payload}: PayloadAction<Date>) => {
+      state.profile.dob = payload;
     },
     onRemoveProfile: state => {
       state.profile = initialProfileState.profile;
@@ -52,11 +51,8 @@ export const {
   onUpdateProfile,
   onRemoveProfile,
   onUpdateName,
-  onUpdateWeight,
   onUpdateGender,
-  onUpdateLanguage,
-  onUpdateRegion,
-  onUpdateSleepTime,
-  onUpdateWakeUpTime,
-  onUpdateAge,
+  onUpdateEmail,
+  onUpdatePhone,
+  onUpdateDOB,
 } = appSlice.actions;
